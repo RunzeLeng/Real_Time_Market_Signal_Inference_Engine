@@ -138,21 +138,21 @@ Because market prices are noisy and partially efficient, directional prediction 
 
 ### Model Accuracy
 
-| Symbol | Model Accuracy |
-| --- | ---: |
-| DIA | 0.623148 |
-| HYG | 0.672008 |
-| NVDU | 0.591987 |
-| QQQ | 0.615702 |
-| SOXX | 0.605497 |
-| SPY | 0.616147 |
-| TLT | 0.582999 |
-| TSLL | 0.579899 |
-| UCO | 0.616174 |
-| UGL | 0.596243 |
-| VXX | 0.620636 |
-| XLE | 0.561941 |
-| XLF | 0.616746 |
+| Symbol | Model Accuracy | Model Coverage |
+| --- | ---: | ---: |
+| DIA | 0.623 | 0.649 |
+| HYG | 0.672 | 0.776 |
+| NVDU | 0.592 | 0.492 |
+| QQQ | 0.616 | 0.322 |
+| SOXX | 0.605 | 0.476 |
+| SPY | 0.616 | 0.420 |
+| TLT | 0.583 | 0.382 |
+| TSLL | 0.580 | 0.307 |
+| UCO | 0.616 | 0.466 |
+| UGL | 0.596 | 0.380 |
+| VXX | 0.621 | 0.397 |
+| XLE | 0.562 | 0.286 |
+| XLF | 0.617 | 0.499 |
 
 ### Key Observations
 
