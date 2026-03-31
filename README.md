@@ -132,7 +132,7 @@ Because market prices are noisy and partially efficient, directional prediction 
 | --- | --- |
 | < 0.52 | Noise / no meaningful signal |
 | 0.52 – 0.55 | Weak edge |
-| 0.55 – 0.60 | Usable and consistent signal |
+| 0.55 – 0.60 | Consistent signal |
 | 0.60 – 0.65 | Strong directional signal |
 | 0.65+ | High-confidence signal (rare in real markets) |
 
