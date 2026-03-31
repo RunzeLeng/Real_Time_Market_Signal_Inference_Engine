@@ -116,36 +116,62 @@ Benefits of this design:
 - Higher interpretability
 - Better downstream ML performance
 
-### 8. Machine Learning Layer
-
-- Model family: XGBoost classifiers
-- Input: structured LLM-generated features
-- Output: buy or sell ETF signal predictions
-
-Each ETF uses its own trained model group for inference.
-
-### 9. Performance Evaluation
-
-Signals are evaluated against future ETF price movement using VWAP-based forward return windows.
-
-Evaluation supports multiple forward horizons and includes metrics such as:
-
-- Directional accuracy
-- Confidence-filtered performance
-- Cross-ETF robustness
-
 <br>
 
-## Target ETF Coverage
+## Model Performance
 
-The system supports multiple ETF categories:
+The deployed ETF-specific models are built using XGBoost and evaluated as binary directional classifiers for buy and sell prediction. Model performance is measured on out-of-sample validation data to reflect generalization rather than in-sample fit.
 
-- Equities: QQQ, SPY, DIA
-- Commodities: UCO, UGL
-- Macro: UUP, TLT
-- Volatility: VXX
-- Sectors: XLF, XLE, SOXX
-- Leveraged exposure: TSLL, NVDU
+Across the covered ETF universe, the models consistently demonstrate statistically meaningful directional predictive power, with accuracy levels above the random baseline of `0.50`. In the context of financial time series, even moderate improvements over random performance can represent meaningful predictive edge.
+
+### Accuracy Benchmark
+
+Because market prices are noisy and partially efficient, directional prediction accuracy should be interpreted using domain-specific standards rather than conventional classification expectations.
+
+| Accuracy Range | Interpretation |
+| --- | --- |
+| < 0.52 | Noise / no meaningful signal |
+| 0.52 – 0.55 | Weak edge |
+| 0.55 – 0.60 | Usable and consistent signal |
+| 0.60 – 0.65 | Strong directional signal |
+| 0.65+ | High-confidence signal (rare in real markets) |
+
+### Model Accuracy
+
+| Symbol | Model Accuracy |
+| --- | ---: |
+| DIA | 0.623148 |
+| HYG | 0.672008 |
+| NVDU | 0.591987 |
+| QQQ | 0.615702 |
+| SOXX | 0.605497 |
+| SPY | 0.616147 |
+| TLT | 0.582999 |
+| TSLL | 0.579899 |
+| UCO | 0.616174 |
+| UGL | 0.596243 |
+| VXX | 0.620636 |
+| XLE | 0.561941 |
+| XLF | 0.616746 |
+
+### Key Observations
+
+- Most deployed models fall within the `0.58 – 0.67` range, placing the system broadly in the usable-to-strong signal category.
+- Several core ETFs including `DIA`, `QQQ`, `SPY`, `UCO`, `VXX`, and `XLF` exceed `0.60`, indicating strong directional performance across multiple asset classes.
+- `HYG` currently shows the highest model accuracy at `0.672008`, suggesting particularly strong predictive capture in credit-sensitive market behavior.
+- Performance is relatively stable across equities, commodities, volatility, and macro proxy ETFs, indicating good cross-asset robustness.
+
+### Practical Interpretation
+
+In real financial markets, achieving directional accuracy above `0.60` is already meaningful due to high noise, regime shifts, and relatively low signal-to-noise ratio. For this reason, the system is designed not only to optimize raw model accuracy, but also to improve effective signal quality through additional inference controls.
+
+These include:
+
+- LLM-based validation and signal filtering
+- Confidence-based thresholding
+- Real-time inference and decision control
+
+Together, these layers are intended to improve real-world signal precision beyond standalone model metrics and support a more robust production inference pipeline.
 
 <br>
 
