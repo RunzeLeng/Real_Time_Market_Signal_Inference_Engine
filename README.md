@@ -1,8 +1,8 @@
-# Real-Time LLM Market Signal Inference Engine
+# Real-Time ML Market Signal Inference Engine
 
 ## Overview
 
-Built a real-time, low-latency AI inference system that converts live social media signals into actionable ETF trading recommendations within seconds.
+Built a real-time, low-latency ML inference system that converts live social media signals into actionable ETF trading recommendations within seconds.
 
 The system combines:
 
