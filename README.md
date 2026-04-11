@@ -186,7 +186,7 @@ Because market prices are noisy and partially efficient, directional prediction 
 ### Model Accuracy
 
 | Symbol | Model Accuracy - Manual Selected | Model Accuracy - LLM Selected | Model Coverage |
-| --- | ---: | ---: | ---: |
+| :---: | :---: | :---: | :---: |
 | DIA | 0.623 | 0.625 | 0.649 |
 | HYG | 0.672 | 0.678 | 0.776 |
 | NVDU | 0.592 | 0.585 | 0.492 |
